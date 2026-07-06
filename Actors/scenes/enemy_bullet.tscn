@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dap2a8d3235d1"]
+
+[ext_resource type="Script" uid="uid://bh4k0niyloago" path="res://Actors/scripts/enemy_bullet.gd" id="1_1xapl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v7g52"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phdwh"]
+size = Vector2(8, 16)
+
+[node name="EnemyBullet" type="Area2D" unique_id=1357021928 groups=["enemy_bullets"]]
+script = ExtResource("1_1xapl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=640599989]
+modulate = Color(1, 0.30588236, 0.28627452, 1)
+scale = Vector2(8, 16)
+texture = SubResource("CanvasTexture_v7g52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=366197678]
+shape = SubResource("RectangleShape2D_phdwh")

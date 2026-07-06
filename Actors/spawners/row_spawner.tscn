@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5elotsih4rri"]
+
+[ext_resource type="Script" uid="uid://d3r38jhf6ep2l" path="res://Actors/spawners/row_spawner.gd" id="1_bvaho"]
+
+[node name="RowSpawner" type="Node2D" unique_id=1191009714]
+script = ExtResource("1_bvaho")
+
+[node name="Timer" type="Timer" parent="." unique_id=331701762]

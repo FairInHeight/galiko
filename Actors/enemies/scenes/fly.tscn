@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dmm37fkocg3kc"]
+
+[ext_resource type="PackedScene" uid="uid://d70d6bbm5l6h" path="res://Actors/scenes/enemy.tscn" id="1_8bhcl"]
+
+[node name="Fly" unique_id=633495163 instance=ExtResource("1_8bhcl")]

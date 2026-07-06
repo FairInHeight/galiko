@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://wdh3eqxawo6i"]
+
+[ext_resource type="AudioStream" uid="uid://cwlaimsqdhqt8" path="res://Sounds/sfx/explode.wav" id="1_5vk53"]
+[ext_resource type="Texture2D" uid="uid://bymbh4fkl7rtg" path="res://Sprites/enemies/fly_anim.png" id="2_5vk53"]
+[ext_resource type="PackedScene" uid="uid://dmm37fkocg3kc" path="res://Actors/enemies/scenes/fly.tscn" id="2_thoct"]
+[ext_resource type="Script" uid="uid://1jdpujqsu4co" path="res://Main/scripts/enemy_data.gd" id="3_thoct"]
+
+[resource]
+script = ExtResource("3_thoct")
+enemy_name = "Fly"
+enemy_scene = ExtResource("2_thoct")
+enemy_max_health = 1
+enemy_texture = ExtResource("2_5vk53")
+sheet_hframes = 4
+idle_end_frame = 3
+idle_fps = 80.0
+walk_end_frame = 3
+walk_fps = 100.0
+metadata/_custom_type_script = "uid://1jdpujqsu4co"

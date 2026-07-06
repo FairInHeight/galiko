@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://c1u5d8b76tv84"]
+
+[ext_resource type="Script" uid="uid://plteama7tuoi" path="res://Main/scripts/world.gd" id="1_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://buwropscn5au8" path="res://Sprites/spacebackground.png" id="2_036b0"]
+[ext_resource type="Script" uid="uid://d05252kqddun3" path="res://space_background.gd" id="2_dwbse"]
+[ext_resource type="Script" uid="uid://uj2ydvw8600" path="res://UI/score_label.gd" id="4_0y8kx"]
+[ext_resource type="PackedScene" uid="uid://cov6ad2foixka" path="res://Menus/scenes/pause_menu.tscn" id="4_036b0"]
+[ext_resource type="Script" uid="uid://b7m7krxhgua4u" path="res://Main/scripts/ui_layer.gd" id="4_mmdxm"]
+[ext_resource type="Script" uid="uid://cnvusxwgafeic" path="res://UI/health_bar.gd" id="4_oybv0"]
+[ext_resource type="Script" uid="uid://dbw54uli5yse3" path="res://UI/session_record.gd" id="5_mmdxm"]
+[ext_resource type="Texture2D" uid="uid://3e8qeggynx0u" path="res://Sprites/ui/ui_ dock.png" id="5_xt25g"]
+[ext_resource type="Script" uid="uid://ci82so61evmtt" path="res://UI/reload_bar.gd" id="8_7d62o"]
+[ext_resource type="Script" uid="uid://dbdt0a5pap352" path="res://Game Modes/debug_mode.gd" id="9_mmdxm"]
+[ext_resource type="Script" uid="uid://btwuspay264ue" path="res://Game Modes/arcade_mode.gd" id="10_xt25g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7g52"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqk2v"]
+font_color = Color(0, 0.50980395, 1, 1)
+
+[node name="World" type="Node2D" unique_id=1123849905]
+script = ExtResource("1_aqk2v")
+
+[node name="LevelContainer" type="Node2D" parent="." unique_id=1076382603]
+
+[node name="SpaceBackground" type="ParallaxBackground" parent="." unique_id=1279458977]
+script = ExtResource("2_dwbse")
+
+[node name="SpaceLayer" type="ParallaxLayer" parent="SpaceBackground" unique_id=941190782]
+motion_mirroring = Vector2(0, 960)
+
+[node name="SpaceTexture" type="TextureRect" parent="SpaceBackground/SpaceLayer" unique_id=1664711209]
+offset_right = 540.0
+offset_bottom = 960.0
+texture = ExtResource("2_036b0")
+stretch_mode = 1
+
+[node name="NotifLayer" type="CanvasLayer" parent="." unique_id=1731202354]
+layer = 100
+
+[node name="NotifBanner" type="Control" parent="NotifLayer" unique_id=206225356]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NotifLabel" type="RichTextLabel" parent="NotifLayer/NotifBanner" unique_id=517590536]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -32.0
+offset_right = 253.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotifSound" type="AudioStreamPlayer" parent="NotifLayer/NotifBanner" unique_id=279562104]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1184766881]
+layer = 101
+script = ExtResource("4_mmdxm")
+
+[node name="UIDock" type="TextureRect" parent="UILayer" unique_id=1239428573]
+offset_top = 895.0
+offset_right = 540.0
+offset_bottom = 960.0
+texture = ExtResource("5_xt25g")
+
+[node name="ScoreLabel" type="Label" parent="UILayer" unique_id=1957003572]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 32.0
+offset_right = 70.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_v7g52")
+horizontal_alignment = 1
+script = ExtResource("4_0y8kx")
+
+[node name="SessionRecord" type="Label" parent="UILayer" unique_id=1221029300]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 11.0
+offset_right = 96.0
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "Session Record: 0"
+label_settings = SubResource("LabelSettings_aqk2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_mmdxm")
+
+[node name="LivesLabel" type="HBoxContainer" parent="UILayer" unique_id=198555280]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -49.0
+offset_right = 88.0
+offset_bottom = -17.0
+grow_vertical = 0
+
+[node name="ReloadBar" type="ProgressBar" parent="UILayer" unique_id=1726458676]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -48.0
+offset_right = 77.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+script = ExtResource("8_7d62o")
+
+[node name="HealthBar" type="ProgressBar" parent="UILayer" unique_id=1308730700]
+modulate = Color(0, 1, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = 912.0
+offset_right = -10.0
+offset_bottom = 944.0
+grow_horizontal = 0
+max_value = 3.0
+value = 3.0
+show_percentage = false
+script = ExtResource("4_oybv0")
+
+[node name="PauseMenu" parent="UILayer" unique_id=810906032 instance=ExtResource("4_036b0")]
+visible = false
+offset_left = 1.0
+
+[node name="DangerIndicator" type="TextureRect" parent="UILayer" unique_id=562480241]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DebugModeManager" type="Node" parent="." unique_id=354410282]
+script = ExtResource("9_mmdxm")
+
+[node name="ArcadeModeManager" type="Node" parent="." unique_id=1961280447]
+script = ExtResource("10_xt25g")

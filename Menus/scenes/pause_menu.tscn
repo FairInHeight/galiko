@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cov6ad2foixka"]
+
+[ext_resource type="Script" uid="uid://dwd63slus4lpq" path="res://Menus/scripts/pause_menu.gd" id="1_i2531"]
+[ext_resource type="PackedScene" uid="uid://lno0ikrni4hg" path="res://Menus/scenes/debug_menu.tscn" id="2_evctx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7g52"]
+font_size = 30
+
+[node name="PauseMenu" type="Control" unique_id=810906032]
+z_index = 111
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2531")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=543764922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.69411767)
+
+[node name="DebugMenu" parent="." unique_id=411926212 instance=ExtResource("2_evctx")]
+layout_mode = 1
+
+[node name="PauseScreen" type="Control" parent="." unique_id=1449943447]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLabel" type="Label" parent="PauseScreen" unique_id=500771848]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -21.0
+offset_right = 161.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 18
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_v7g52")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseScreen" unique_id=326559073]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31666666
+anchor_top = 0.5572917
+anchor_right = 0.68333334
+anchor_bottom = 0.6177083
+offset_left = -62.0
+offset_top = 8.0
+offset_right = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="PauseScreen" unique_id=1846753113]
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = 130.0
+offset_right = 161.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+text = "Quit"
+
+[node name="DebugButton" type="Button" parent="PauseScreen" unique_id=1569477300]
+z_index = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = 152.0
+offset_right = 161.0
+offset_bottom = 226.0
+grow_horizontal = 2
+text = "Debug Menu"

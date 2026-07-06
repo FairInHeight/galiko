@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bkuirkpe5bcpd"]
+
+[ext_resource type="PackedScene" uid="uid://c5elotsih4rri" path="res://Actors/spawners/row_spawner.tscn" id="1_mxqmr"]
+[ext_resource type="Script" uid="uid://bvb7e30343pgk" path="res://Game Modes/arcade waves/wave_1.gd" id="1_qg03b"]
+[ext_resource type="Script" uid="uid://1jdpujqsu4co" path="res://Main/scripts/enemy_data.gd" id="3_2hn58"]
+[ext_resource type="Resource" uid="uid://chu481dx60voh" path="res://Actors/enemies/enemydata/debug_enemy.tres" id="4_vxg5k"]
+[ext_resource type="Resource" uid="uid://wdh3eqxawo6i" path="res://Actors/enemies/enemydata/fly.tres" id="5_vxg5k"]
+[ext_resource type="Resource" uid="uid://b5ptng3md7bym" path="res://Actors/enemies/enemydata/ladybug.tres" id="6_remi8"]
+
+[node name="Wave1" type="Node2D" unique_id=193221087]
+script = ExtResource("1_qg03b")
+
+[node name="RowSpawner" parent="." unique_id=1191009714 instance=ExtResource("1_mxqmr")]
+position = Vector2(0, 100)
+vertical_spacing = 50.0
+horizontal_padding = 80.0
+enemy_palette = Dictionary[String, ExtResource("3_2hn58")]({
+"Debug": ExtResource("4_vxg5k"),
+"Fly": ExtResource("5_vxg5k"),
+"Ladybug": ExtResource("6_remi8")
+})
+default_enemy_key = "Fly"
+row_overrides = Dictionary[int, String]({
+0: "Ladybug"
+})

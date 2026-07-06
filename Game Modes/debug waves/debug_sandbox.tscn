@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b556d0u5pccpw"]
+
+[ext_resource type="Script" uid="uid://d0jdm4eqkp14f" path="res://Game Modes/debug waves/debug_wave.gd" id="1_kbf44"]
+[ext_resource type="PackedScene" uid="uid://co3oskradcspu" path="res://Actors/spawners/invasion_spawner.tscn" id="2_3u0n7"]
+
+[node name="DebugSandbox" type="Node2D" unique_id=799668513]
+script = ExtResource("1_kbf44")
+
+[node name="InvasionSpawner" parent="." unique_id=261518525 instance=ExtResource("2_3u0n7")]
+position = Vector2(0, 100)

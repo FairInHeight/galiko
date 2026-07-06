@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://8lfsf8d2g0cq"]
+
+[ext_resource type="Script" uid="uid://ctduikuq7fqck" path="res://Actors/enemies/scripts/debug_enemy.gd" id="1_8im1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7g52"]
+size = Vector2(32, 32)
+
+[node name="DebugEnemy" type="Area2D" unique_id=633495163 groups=["enemies"]]
+script = ExtResource("1_8im1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1049371550]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567094107]
+shape = SubResource("RectangleShape2D_v7g52")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b5ptng3md7bym"]
+
+[ext_resource type="AudioStream" uid="uid://cwlaimsqdhqt8" path="res://Sounds/sfx/explode.wav" id="1_pxm0g"]
+[ext_resource type="PackedScene" uid="uid://dy4cbuprbka7k" path="res://Actors/enemies/scenes/ladybug.tscn" id="2_bn218"]
+[ext_resource type="Script" uid="uid://1jdpujqsu4co" path="res://Main/scripts/enemy_data.gd" id="3_0tdab"]
+[ext_resource type="Texture2D" uid="uid://cbssquorj82n0" path="res://Sprites/enemies/ladybug_anim.png" id="3_10ubl"]
+
+[resource]
+script = ExtResource("3_0tdab")
+enemy_name = "Ladybug"
+icon = ExtResource("3_10ubl")
+enemy_scene = ExtResource("2_bn218")
+score_value = 150
+enemy_texture = ExtResource("3_10ubl")
+sheet_hframes = 3
+walk_start_frame = 1
+walk_end_frame = 2
+metadata/_custom_type_script = "uid://1jdpujqsu4co"

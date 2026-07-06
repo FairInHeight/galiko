@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bcdp8jflaew3"]
+
+[ext_resource type="Script" uid="uid://bnarn8sc0uif6" path="res://Menus/scripts/main_menu.gd" id="1_jf8mj"]
+[ext_resource type="Texture2D" uid="uid://buwropscn5au8" path="res://Sprites/spacebackground.png" id="2_tngd6"]
+[ext_resource type="AudioStream" uid="uid://duqh4j1dpw6tp" path="res://Sounds/music/galiko_title.wav" id="3_nt5xi"]
+
+[sub_resource type="SystemFont" id="SystemFont_tngd6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7g52"]
+font = SubResource("SystemFont_tngd6")
+font_size = 54
+font_color = Color(0.6039216, 0, 0.8509804, 1)
+outline_size = 8
+
+[sub_resource type="SystemFont" id="SystemFont_ld5j4"]
+font_names = PackedStringArray("D", "Arial")
+
+[sub_resource type="LabelSettings" id="LabelSettings_phdwh"]
+font_size = 28
+
+[node name="MainMenu" type="Control" unique_id=29607488]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -77.0
+offset_right = -1.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jf8mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1405263997]
+position = Vector2(271, 557)
+scale = Vector2(0.9440559, 0.9375)
+texture = ExtResource("2_tngd6")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1403150]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -28.0
+offset_right = 162.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GALIKO"
+label_settings = SubResource("LabelSettings_v7g52")
+
+[node name="Trademark" type="Label" parent="." unique_id=2113981163]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.014
+offset_left = 432.0
+offset_top = 445.0
+offset_right = 460.0
+offset_bottom = 470.56
+theme_override_fonts/font = SubResource("SystemFont_ld5j4")
+text = "™"
+label_settings = SubResource("LabelSettings_phdwh")
+
+[node name="ArcadeButton" type="Button" parent="." unique_id=832080832]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 37.0
+offset_right = 83.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ARCADE"
+
+[node name="DebugButton" type="Button" parent="." unique_id=2048490388]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.63000005
+anchor_right = 0.5
+anchor_bottom = 0.63000005
+offset_left = -85.0
+offset_top = -31.800049
+offset_right = 83.0
+offset_bottom = -0.8000488
+grow_horizontal = 2
+grow_vertical = 2
+text = "Debug"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1758522730]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.615
+anchor_right = 0.5
+anchor_bottom = 0.615
+offset_left = -85.0
+offset_top = 22.599976
+offset_right = 83.0
+offset_bottom = 56.599976
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1415203884]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 181.0
+offset_right = 83.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=552393264]
+stream = ExtResource("3_nt5xi")
+volume_db = 6.592
+
+[node name="Copyright" type="Label" parent="." unique_id=882703109]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 989.0
+offset_right = 337.0
+offset_bottom = 1024.0
+text = "© 2026 FairInHeight
+All Rights Reserved."

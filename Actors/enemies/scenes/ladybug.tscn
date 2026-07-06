@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dy4cbuprbka7k"]
+
+[ext_resource type="PackedScene" uid="uid://d70d6bbm5l6h" path="res://Actors/scenes/enemy.tscn" id="1_vgiwt"]
+
+[node name="Ladybug" unique_id=633495163 instance=ExtResource("1_vgiwt")]

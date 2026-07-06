@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d1xekccy5mwj6"]
+
+[node name="SoloSpawner" type="Node2D" unique_id=1535738649]
+
+[node name="Timer" type="Timer" parent="." unique_id=776491506]

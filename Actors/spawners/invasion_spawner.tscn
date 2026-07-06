@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://co3oskradcspu"]
+
+[ext_resource type="Script" uid="uid://btj3irkypo4oh" path="res://Actors/spawners/invasion_spawner.gd" id="1_iwpk2"]
+
+[node name="InvasionSpawner" type="Node2D" unique_id=261518525]
+script = ExtResource("1_iwpk2")
+
+[node name="Timer" type="Timer" parent="." unique_id=833416951]
+wait_time = 2.0
+autostart = true

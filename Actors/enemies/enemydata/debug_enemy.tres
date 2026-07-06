@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://chu481dx60voh"]
+
+[ext_resource type="AudioStream" uid="uid://cwlaimsqdhqt8" path="res://Sounds/sfx/explode.wav" id="1_s8j72"]
+[ext_resource type="PackedScene" uid="uid://8lfsf8d2g0cq" path="res://Actors/enemies/scenes/debug_enemy.tscn" id="2_5jdgy"]
+[ext_resource type="Texture2D" uid="uid://bhdcd4hqqb5xe" path="res://Sprites/placeholder_enemy.png" id="2_qgu4k"]
+[ext_resource type="Script" uid="uid://1jdpujqsu4co" path="res://Main/scripts/enemy_data.gd" id="3_0yrc1"]
+
+[resource]
+script = ExtResource("3_0yrc1")
+enemy_name = "Debug Enemy"
+icon = ExtResource("2_qgu4k")
+enemy_scene = ExtResource("2_5jdgy")
+metadata/_custom_type_script = "uid://1jdpujqsu4co"

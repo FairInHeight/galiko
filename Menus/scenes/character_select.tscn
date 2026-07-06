@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://caclqy6eo8vjl"]
+
+[ext_resource type="Script" uid="uid://dfrgxmi4q50qf" path="res://Menus/scripts/character_select.gd" id="1_45eld"]
+[ext_resource type="Texture2D" uid="uid://bu2k2matdhgq2" path="res://Sprites/players/character_red.png" id="2_n52mi"]
+[ext_resource type="Texture2D" uid="uid://buwropscn5au8" path="res://Sprites/spacebackground.png" id="2_urguv"]
+[ext_resource type="Texture2D" uid="uid://c0gv62q0h7mmw" path="res://Sprites/players/character_white.png" id="3_dlurn"]
+[ext_resource type="Texture2D" uid="uid://cshfmivegtkqm" path="res://Sprites/players/character_green.png" id="3_newut"]
+[ext_resource type="Texture2D" uid="uid://bfyy11wv8d412" path="res://Sprites/players/character_blue.png" id="4_x7rkx"]
+[ext_resource type="Texture2D" uid="uid://c4b6nq118c5hc" path="res://Sprites/players/character_yellow.png" id="5_3p5vd"]
+[ext_resource type="Texture2D" uid="uid://bufqktsdc44km" path="res://Sprites/players/character_orange.png" id="5_u70dv"]
+[ext_resource type="Texture2D" uid="uid://ea3f1slmgaro" path="res://Sprites/players/character_pink.png" id="6_35wlm"]
+[ext_resource type="Texture2D" uid="uid://e2xqiytakxw2" path="res://Sprites/players/character_purple.png" id="6_vmvrc"]
+[ext_resource type="Texture2D" uid="uid://b5cfwt1jd7gkd" path="res://Sprites/players/character_cyan.png" id="7_jqu7w"]
+[ext_resource type="Texture2D" uid="uid://b1pcb883f0xr8" path="res://Sprites/players/character_black.png" id="8_5dg1r"]
+
+[node name="CharacterSelect" type="Control" unique_id=1734462350]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_45eld")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1127320569]
+position = Vector2(269.99997, 480.00003)
+scale = Vector2(0.944056, 0.93749994)
+texture = ExtResource("2_urguv")
+
+[node name="SelectLabel" type="Label" parent="." unique_id=466919516]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 132.0
+offset_right = 231.0
+offset_bottom = 219.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 22
+text = "Select Your Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WhiteShip" type="Button" parent="." unique_id=1270729493]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -32.0
+offset_right = 112.0
+offset_bottom = 32.0
+grow_vertical = 2
+icon = ExtResource("3_dlurn")
+icon_alignment = 1
+expand_icon = true
+
+[node name="RedShip" type="Button" parent="." unique_id=1226524325]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 448.0
+offset_right = 208.0
+offset_bottom = 512.0
+icon = ExtResource("2_n52mi")
+icon_alignment = 1
+expand_icon = true
+
+[node name="GreenShip" type="Button" parent="." unique_id=303912667]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -32.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_newut")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BlueShip" type="Button" parent="." unique_id=466463546]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 448.0
+offset_right = 400.0
+offset_bottom = 512.0
+icon = ExtResource("4_x7rkx")
+icon_alignment = 1
+expand_icon = true
+
+[node name="YellowShip" type="Button" parent="." unique_id=675987311]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -32.0
+offset_right = -44.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("5_3p5vd")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PurpleShip" type="Button" parent="." unique_id=423502596]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = 64.0
+offset_right = 112.0
+offset_bottom = 128.0
+grow_vertical = 2
+icon = ExtResource("6_vmvrc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="OrangeShip" type="Button" parent="." unique_id=1525324108]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 208.0
+offset_bottom = 128.0
+grow_vertical = 2
+icon = ExtResource("5_u70dv")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PinkShip" type="Button" parent="." unique_id=1070264258]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = 64.0
+offset_right = 304.0
+offset_bottom = 128.0
+grow_vertical = 2
+icon = ExtResource("6_35wlm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CyanShip" type="Button" parent="." unique_id=1741499543]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 336.0
+offset_top = 64.0
+offset_right = 400.0
+offset_bottom = 128.0
+grow_vertical = 2
+icon = ExtResource("7_jqu7w")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BlackShip" type="Button" parent="." unique_id=1170025573]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = 64.0
+offset_right = 496.0
+offset_bottom = 128.0
+grow_vertical = 2
+icon = ExtResource("8_5dg1r")
+icon_alignment = 1
+expand_icon = true

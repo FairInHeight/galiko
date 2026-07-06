@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://drakqx3dmnkam"]
+
+[ext_resource type="PackedScene" uid="uid://c1u5d8b76tv84" path="res://Main/scenes/world.tscn" id="1_gtlw7"]
+[ext_resource type="Script" uid="uid://dbdt0a5pap352" path="res://Game Modes/debug_mode.gd" id="2_k8dgq"]
+[ext_resource type="Script" uid="uid://cnvusxwgafeic" path="res://UI/health_bar.gd" id="3_g53td"]
+
+[node name="DebugMode" unique_id=1123849905 instance=ExtResource("1_gtlw7")]
+script = ExtResource("2_k8dgq")
+
+[node name="SpaceTexture" parent="SpaceBackground/SpaceLayer" parent_id_path=PackedInt32Array(941190782) index="0" unique_id=1664711209]
+offset_right = 572.0
+offset_bottom = 1024.0
+
+[node name="HealthBar" parent="UILayer" parent_id_path=PackedInt32Array(1184766881) index="3" unique_id=1308730700]
+script = ExtResource("3_g53td")
