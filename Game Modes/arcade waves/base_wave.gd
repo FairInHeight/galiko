@@ -10,7 +10,10 @@ var active_spawners: Array[Node] = []
 
 
 func _ready() -> void:
-	# Wait one frame to ensure children spawners are ready in the tree
+	# 🟢 TIMELINE INITIALIZATION: Trigger custom event setups before spawners activate
+	setup_wave_events()
+	
+	# Wait one frame to ensure children spawners are completely ready in the scene tree
 	await get_tree().process_frame
 	_initialize_and_start_spawners()
 
@@ -24,7 +27,7 @@ func _initialize_and_start_spawners() -> void:
 		if child.has_method("spawn_wave"):
 			active_spawners.append(child)
 			
-			# 🟢 SEED INJECTION: Pass the deterministic RNG state down to the spawner 
+			# SEED INJECTION: Pass the deterministic RNG state down to the spawner 
 			# so enemy attributes, lanes, and delays match the seed perfectly!
 			if "rng" in child:
 				child.rng = Global.arcade_rng
@@ -70,12 +73,12 @@ func setup_wave_events() -> void:
 	pass
 
 
-## 🟢 STABILIZED CHECKER: Safely tracks enemy AI status without memory leaks
+## STABILIZED CHECKER: Safely tracks enemy AI status without memory leaks
 func are_all_enemies_stabilized() -> bool:
 	for spawner in active_spawners:
 		if is_instance_valid(spawner) and "living_enemies" in spawner:
 			for enemy in spawner.living_enemies:
-				# 🟢 CRITICAL STABILITY SHIELD: Skip completely if an enemy node was freed mid-combat
+				# CRITICAL STABILITY SHIELD: Skip completely if an enemy node was freed mid-combat
 				if not is_instance_valid(enemy):
 					continue
 					

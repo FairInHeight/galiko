@@ -23,14 +23,32 @@ signal wave_cleared
 @export var column_overrides: Dictionary[int, String] = {}
 @export var slot_overrides: Dictionary[String, String] = {}
 
+# --- 🟢 NEW: BACKWARD COMPATIBLE SEEDED ELEMENTAL CONFIGS ---
+@export_group("Seeded Elemental Configs")
+## The absolute percentage chance (0.0 to 1.0) that any enemy becomes elemental.
+## 0.0 = All Normal Enemies | 1.0 = All Enemies Roll Elemental
+@export_range(0.0, 1.0) var elemental_chance: float = 0.0
+
+## Define precise relative weights for each element type when an enemy rolls elemental.
+## Keys: TypeManager.Type (Integers) | Values: Relative Weights (Floats)
+## Example: { 1: 7.0, 2: 3.0 } -> 70% Fire chance, 30% Ice chance
+@export var element_weights: Dictionary = {}
+
 # --- RUNTIME TRACKING ---
 # Keeps track of all currently living enemies spawned by this specific node
 var living_enemies: Array[Node2D] = []
+## Injected automatically by BaseWave down the tree hierarchy
+var rng: RandomNumberGenerator = null
 
 
 func spawn_wave() -> void:
 	print("Row Spawner ticking! Generating matrix...")
 	living_enemies.clear() # Clear out any old references just in case
+	
+	# 🟢 FALLBACK PROTECTION: Fall back smoothly if running outside of a master wave setup
+	if not rng:
+		rng = RandomNumberGenerator.new()
+		rng.randomize()
 	
 	# Grab viewport width dynamically to keep formatting uniform across screen changes
 	var screen_width: float = get_viewport_rect().size.x
@@ -99,6 +117,34 @@ func spawn_enemy_at_slot(key: String, pos: Vector2, row: int, col: int) -> void:
 		enemy.init_from_data(selected_data)
 	else:
 		inject_enemy_data(enemy)
+		
+	# 🟢 NEW: DETERMINISTIC ELEMENT ROLL WITH PRECISION WEIGHTS
+	if not element_weights.is_empty() and rng.randf() <= elemental_chance:
+		var total_weight: float = 0.0
+		for weight in element_weights.values():
+			total_weight += max(0.0, float(weight))
+			
+		if total_weight > 0.0:
+			var roll: float = rng.randf() * total_weight
+			var current_sum: float = 0.0
+			var chosen_type: TypeManager.Type = TypeManager.Type.DEFAULT
+			
+			for element_key in element_weights.keys():
+				current_sum += float(element_weights[element_key])
+				if roll <= current_sum:
+					chosen_type = int(element_key) as TypeManager.Type
+					break
+			
+			enemy.elemental_type = chosen_type
+			if enemy.has_method("_apply_elemental_modulation"):
+				enemy._apply_elemental_modulation()
+	else:
+		# Fallback cleanly to data sheet defaults if chance rolls fail or dictionary is empty
+		var fallback_type = selected_data.elemental_type if selected_data else TypeManager.Type.DEFAULT
+		if enemy.elemental_type != fallback_type:
+			enemy.elemental_type = fallback_type
+			if enemy.has_method("_apply_elemental_modulation"):
+				enemy._apply_elemental_modulation()
 		
 	# --- ADD TO TRACKING SYSTEM ---
 	living_enemies.append(enemy)
